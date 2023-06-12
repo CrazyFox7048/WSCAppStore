@@ -27,6 +27,7 @@ def dark():
     global bg
     global fg
     ttk.Style().configure('.', foreground="#f2f4f5", background="#3c4043")
+    ttk.Style().configure('TButton', foreground="black")
     bg = "#3c4043"
     root.config(bg=bg)
     fg = "#f2f4f5"
@@ -36,6 +37,7 @@ def light():
     global bg
     global fg
     ttk.Style().configure('.', foreground="black", background="lightgrey")
+    ttk.Style().configure('TButton', foreground="black")
     bg = "lightgrey"
     root.config(bg=bg)
     fg = "black"
@@ -94,14 +96,16 @@ def Download(link, name, destination, shortcut, run, message):
     for widget in root.winfo_children():
         widget.destroy()
     Label(root, text="--- "+name+" Installation ---", bg=bg, fg=fg).grid(row=0, column=0, padx=5, pady=5)
-    button = Button(root, text="Start", command=lambda: DownloadStart(link, name, destination, shortcut, run, message, button, msg))
+    button = ttk.Button(root, text="Start", command=lambda: DownloadStart(link, name, destination, shortcut, run, message, button, msg, msg1))
     msg = Label(root, text="(Downloads May Take Up to 5 Minutes)", bg=bg, fg=fg)
+    msg1 = Label(root, text="Follow all installation instructions during and after install for proper program function", bg=bg, fg=fg)
     msg.grid(row=1, column=0, padx=5, pady=5)
-    button.grid(row=2, column=0, padx=5, pady=5)
+    msg1.grid(row=2, column=0, padx=5, pady=5)
+    button.grid(row=3, column=0, padx=5, pady=5)
     ttk.Button(root, image=backIcon, command=lambda: page1(user)).grid(row=5, column=0, padx=5, pady=5)
     ttk.Button(root, image=exitIcon, command=root.destroy).grid(row=5, column=1, padx=5, pady=5)
 
-def DownloadStart(link, name, destination, shortcut, run, message, button, msg):
+def DownloadStart(link, name, destination, shortcut, run, message, button, msg, msg1):
     global user
     global admin
     global root
@@ -112,6 +116,7 @@ def DownloadStart(link, name, destination, shortcut, run, message, button, msg):
     from pathlib import Path
     import os, webbrowser, time, subprocess, shutil, urllib.request
     msg.destroy()
+    msg1.destroy()
     button.destroy()
     Label(root, text="", bg=bg, fg=fg).grid(row=1, column=0, padx=5, pady=5)
     createBat(user)
