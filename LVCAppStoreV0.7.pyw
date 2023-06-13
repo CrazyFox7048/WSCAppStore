@@ -8,6 +8,10 @@ def start():
     root = Tk()
     root.title("App Store")
     dark()
+    from PIL import Image
+    from PIL import ImageTk
+    import urllib.request
+    root.wm_iconphoto(True, ImageTk.PhotoImage(image = Image.open(urllib.request.urlopen("https://raw.githubusercontent.com/CrazyFox7048/LVCAppStore/main/icon.ico"))))
     root.resizable(False, False)
     logon()
     root.mainloop()
