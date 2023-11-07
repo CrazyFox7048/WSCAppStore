@@ -395,7 +395,7 @@ def page1(user):
     ttk.Button(root, image=uninstallIcon, command=lambda: Uninstall(["C:\\Users\\"+user+"\\AppData\\Roaming\\Opera Software","C:\\Users\\"+user+"\\AppData\\Local\\Opera Software", "C:\\Users\\"+user+"\\AppData\\Local\\Programs\\Opera", "C:\\Users\\"+user+"\\AppData\\Local\\Temp\\.opera"], "OperaGX")).grid(row=4, column=2, padx=5, pady=5)
 
     Label(root, text="AT Launcher", bg=bg, fg=fg).grid(row=5, column=0, padx=5, pady=5)
-    ttk.Button(root, image=downloadIcon, command=lambda: Download("https://github.com/CrazyFox7048/LVCAppStore/raw/main/ATLauncher.jar", "AT Launcher", "C:\\Users\\"+user+"\\AppData\\Roaming\\ATLauncher\\", "C:\\Users\\"+user+"\\AppData\\Roaming\\ATLauncher\\ATLauncher.jar", False, "")).grid(row=5, column=1, padx=5, pady=5)
+    ttk.Button(root, image=downloadIcon, command=lambda: Download("https://atlauncher.com/download/exe", "AT Launcher", "C:\\Users\\"+user+"\\AppData\\Roaming\\ATLauncher\\", "C:\\Users\\"+user+"\\AppData\\Roaming\\ATLauncher\\ATLauncher.jar", False, "")).grid(row=5, column=1, padx=5, pady=5)
     ttk.Button(root, image=uninstallIcon, command=lambda: Uninstall(["C:\\Users\\"+user+"\\AppData\\Roaming\\ATLauncher"], 'AT Launcher')).grid(row=5, column=2, padx=5, pady=5)
 
     Label(root, text="Page 1", bg=bg, fg=fg).grid(row=6, column=1, padx=5, pady=5)
